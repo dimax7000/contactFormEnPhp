@@ -38,6 +38,8 @@ $errorMessage = "";
    
  }
  if(!empty($errors)){
+   $allError = join("<br>",$errors);
+   $allMessage =
 
 
 
@@ -50,6 +52,18 @@ $errorMessage = "";
  $sendMail->SMTPAuth = true;
  $sendMail->Username ='6f639e61a8dc9a';
  $sendMail->Password ='64b353553e3a8c';
+ $sendMail->SMTPSecure ='tls';
+ $sendMail->Port = 2525;
+ $sendMail->isHTML(true);
+
+ $sendMail->setForm($email,'tester mail trap');
+ $sendMail->addAddress('komlanvidanklou@gmail.com','Moi');
+ $sendMail->Subject = "Message venant de mailtrap";
+
+
+ $bodyParagraphs=["Name: {$name}","Prenom: {$prenom}";"email: {$email}","Sujet: {$sujet}","message: nl2br($message)"];
+ $sendMail->
+
 
 
 
